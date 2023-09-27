@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+use function PHPUnit\Framework\returnSelf;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +22,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ,'IsAdmin' ]
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ,'IsAdmin'  ]
     ], function(){ //...
-        Route::get('/', function () {
-            return view('welcome');
-        });
+
 
         Route::get('/dashboard', function () {
             return view('dashboard');
@@ -32,8 +34,18 @@ Route::group(
             Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
             Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
             Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+            Route::get('/profile/index', [ProfileController::class, 'index'])->name('profile.index');
+            Route::resource('categories',CategoryController::class);
+            Route::resource('products',ProductController::class);
+            Route::resource('orders', OrderController::class);
+
         });
-        Route::resource('/categories',CategoryController::class);
+
+
+    });
+    Route::get('/', function () {
+        return view('welcome');
+
     });
 
 

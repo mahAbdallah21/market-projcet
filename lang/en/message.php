@@ -28,8 +28,37 @@ return [
    'Select Category' =>'Select Category',
    'Click to upload Image' =>'Click to upload Image',
    'Arabic META TITLE' =>'Arabic META TITLE' ,
-   'English META TITLE' =>'Arabic META TITLE' ,
+   'English META TITLE' =>'English META TITLE' ,
    'select one' =>'select one' ,
+   'showing' =>'showing',
+   'Name' =>'Name',
+   'image' =>'image',
+   'main category' =>'main category',
+   'meta_title' =>'Meta Title',
+   'popular' =>'popular',
+   'Description'=>'Description',
+   'meta keywords'=>'meta keywords ',
+   'Is Not Show'=>'Is Not Show ',
+   'Is Not popular'=> 'Is Not popular',
+   'it is Main Category'=>'it is Main Category',
+   'users'=>'{1}Uesr|{2,*}Users',
+   'Total Orders'=>'Total Orders',
+   'Available Products'=>'Available Products',
+   'user'=>'Users',
+   'products'=>'products',
+   'orders'=>'orders',
+   'email'=>'Email',
+   'phone'=>'Phone',
+   'address'=>'address',
+   'city'=>'city',
+   'country'=>'country',
+   'role'=>'role',
+   'Action'=>'Action',
+
+
+
+
+
 
 
 

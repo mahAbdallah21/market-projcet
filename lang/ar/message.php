@@ -30,6 +30,39 @@ return [
    'Arabic META TITLE' =>'عنوان باللغه العربيه' ,
    'English META TITLE' =>'عنوان باللغه الانجليزيه' ,
    'select one' =>'اختر واحدة' ,
+   'showing' =>'عرض' ,
+   'Name' =>'الاسم',
+   'image' =>'صورة',
+   'main category' =>'الفئة الرئيسية',
+   'meta_title' =>'عنوان الفوقية',
+   'popular' =>'شعبى',
+   'Description'=>'وصف',
+   'meta keywords'=>'كلمات دلالية',
+   'it is Main Category'=>'إنها الفئة الرئيسية',
+   'Is Not Show'=>'لا تظهر',
+   'Is Not popular'=>'ليست شعبية',
+   'users'=>'مستخدم|{2}مستخدمان|{2,10}مستخدمين|{11,*}مستخدم|{1}',
+   'Total Orders'=>'إجمالي الطلبات',
+   'Available Products'=>'المنتجات المتوفرة',
+   'user'=>'مستخدمين',
+   'products'=>'المنتجات',
+   'orders'=>'طلبات',
+   'email'=>' البريد الإلكتروني',
+   'phone'=>'رقم التليفون',
+   'address'=>'عنوان',
+   'city'=>'مدينة',
+   'country'=>'دولة',
+   'role'=>'دور',
+   'Action'=>'أجراءات',
+
+
+
+
+
+
+
+
+
 
 
 

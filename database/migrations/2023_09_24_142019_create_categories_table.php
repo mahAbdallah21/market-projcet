@@ -19,8 +19,8 @@ return new class extends Migration
             $table->tinyInteger('is_showing')->default(0);
             $table->tinyInteger('is_popular')->default(0);
             $table->text('meta_title');
-            $table->text('meta_description');
-            $table->text('mate_keywords');
+            $table->text('meta_description')->nullable();
+            $table->text('mate_keywords')->nullable();
             $table->timestamps();
         });
     }

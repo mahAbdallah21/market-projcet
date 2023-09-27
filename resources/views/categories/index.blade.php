@@ -20,8 +20,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">8,282</h4>
-                        <div class="text-gray-500">New Users</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{App\models\User::count()}}</h4>
+                        <div class="text-gray-500">{{trans_choice('message.users',App\models\User::count())}}</div>
                     </div>
                 </div>
             </div>
@@ -37,8 +37,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">200,521</h4>
-                        <div class="text-gray-500">Total Orders</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{App\models\Order::count()}}</h4>
+                        <div class="text-gray-500">{{__('message.Total Orders')}}</div>
                     </div>
                 </div>
             </div>
@@ -53,8 +53,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">215,542</h4>
-                        <div class="text-gray-500">Available Products</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{App\models\Order::count()}}</h4>
+                        <div class="text-gray-500">{{__('message.Available Products')}}</div>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
     <div class="flex flex-col mt-8">
         <div class="mt-4">
             <div class="flex rounded-md bg-white py-4 px-4 justify-end justify-items-end ">
-                <button class="px-6 py-3 bg-purple-600 rounded-md text-white font-medium tracking-wide hover:bg-purple-500 ml-3"><a href="{{route('categories.create')}}">Add Category</a></button>
+                <button type="'button" class="px-6 py-3 bg-purple-400 rounded-md text-white font-medium tracking-wide hover:bg-purple-900 ml-3"><a href="{{route('categories.create')}}">{{__('message.Add New Category')}}</a></button>
 
 
         </div>
@@ -84,13 +84,13 @@
                         <tr>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">#</th>
 
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">image</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{__('message.Name')}}</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{__('message.image')}}</th>
 
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">main category</th>
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">meta_title</th>
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">meta_description</th>
-                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">mate_keywords</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{__('message.main category')}}</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{__('message.meta_title')}}</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{__('message.popular')}}</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{__('message.showing')}}</th>
 
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50">Action</th>
                         </tr>
@@ -99,7 +99,8 @@
                     <tbody class="bg-white">
                         @forelse ( $categories as $key=> $category )
                         <tr>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">{{$key + $categories->firstItem()}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5
+                             text-gray-500">{{$key + $categories->firstItem()}}</td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
 
 
@@ -123,12 +124,32 @@
                             </td>
 
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                {{-- <div class="text-sm leading-5 text-gray-900"> {{$category->category_id ? $category->main_category->name : '' }}</div> --}}
+                                <div class="text-sm leading-5 text-gray-900"> {{$category->category_id ? $category->main_category->name : '' }}</div>
                                 <div class="text-sm leading-5 text-gray-500"></div>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">{{$category->meta_title}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">{{$category->meta_description}}</td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">{{$category->mate_keywords}}</td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                                @if ($category->is_popular === 1)
+                                <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Is popular</span>
+
+
+                                @else
+                                <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Is Not popular</span>
+
+
+                                @endif
+                            </td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                                @if ($category->is_showing === 1)
+                                <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">showing</span>
+
+
+                                @else
+                                <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Is Not Show</span>
+
+
+                                @endif
+                            </td>
 
 
 
@@ -137,10 +158,17 @@
                             <td class="px-8 py-6 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
                                 <a href="{{route('categories.show' ,$category->id)}}" class="text-indigo-600 hover:text-indigo-900">Show</a>
                                 <a href="{{route('categories.edit' ,$category->id)}}" class="text-green-400 hover:text-green-900">Edit</a>
-                                <form method="POST" action="{{route('categories.destroy', $category->id)}}">
-                                  @csrf
+
+                                <form method="POST" action="{{ route('categories.destroy' , $category->id )}}" >
                                   @method('DELETE')
-                                    <button class="text-red-600 hover:text-red-900" type="submit"  onclick="return confirm('Are you sure Delete this?')" >Delete</button></a>
+                                    @csrf
+
+
+                                    <button type="submit"
+                                    class="text-red-500  hover:text-red-900 focus:outline-none">
+
+                                      Delete
+                                    </button>
                                 </form>
                             </td>
                         </tr>

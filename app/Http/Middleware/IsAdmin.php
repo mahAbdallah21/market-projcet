@@ -16,14 +16,14 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check()) {
+        if (Auth::user()) {
            if (Auth::user()->role === 'admin') {
             return $next($request);
            }else {
-            abort(403);
+            return redirect()->back()->with('warning','You Not Admin');
            }
         }else{
-            return redirect()->back()->with('status','You should Log In');
+            return redirect()->back()->with('warning','You should Log In');
         }
 
     }

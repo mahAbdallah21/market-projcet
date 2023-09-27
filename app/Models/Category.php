@@ -9,13 +9,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use HasFactory;
+     use HasTranslations;
+     protected $guarded = ['id'];
 
-    protected $guarded = ['id'];
+
+
     protected $fillable = ['name', 'image','category_id' ,'is_showing' , 'is_popular','meta_title', 'meta_description'
     ,'mate_keywords'];
-    use HasTranslations;
-    public $translatable = ['name', 'image','category_id' ,'is_showing' , 'is_popular','meta_title', 'meta_description'
-    ,'mate_keywords'];
+
+    public $translatable = ['name','meta_title'];
 
     public function sub_category(){
         return 	$this->hasMany(category::class);
