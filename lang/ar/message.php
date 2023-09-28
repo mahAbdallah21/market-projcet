@@ -37,6 +37,9 @@ return [
    'meta_title' =>'عنوان الفوقية',
    'popular' =>'شعبى',
    'Description'=>'وصف',
+   "Description_en" => 'وصف باللغه الانجليزيه',
+   "Description_ar" => 'وصف باللغه العربية',
+
    'meta keywords'=>'كلمات دلالية',
    'it is Main Category'=>'إنها الفئة الرئيسية',
    'Is Not Show'=>'لا تظهر',
@@ -54,7 +57,9 @@ return [
    'country'=>'دولة',
    'role'=>'دور',
    'Action'=>'أجراءات',
-
+  'price'=>'السعر',
+  'Add New product' => 'أضافة منتج جديد',
+  'Edit product' => 'تعديل المنتج',
 
 
 

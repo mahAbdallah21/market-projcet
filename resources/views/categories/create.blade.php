@@ -78,14 +78,14 @@
                         </div>
 
                     </div>
-                    <div class="flex items-center justify-center w-full">
+                    <div class="flex items-center justify-center p-5 w-full">
                         <label class="inline-flex items-center p-7php">
-                            <input type="checkbox" name="is_showing" class="form-checkbox h-5 w-5 text-purple-700"><span
+                            <input type="checkbox" name="is_showing" class="form-checkbox h-5 w-5  text-purple-700"><span
                                 class="ml-2 text-gray-700">showing</span>
                         </label>
 
                         <label class="inline-flex items-center">
-                            <input type="checkbox" name="is_popular" class="form-checkbox h-5 w-5 text-red-600"><span
+                            <input type="checkbox" name="is_popular" class="form-checkbox h-5 w-5  text-red-600"><span
                                 class="ml-2 text-gray-700">popular</span>
                         </label>
                     </div>

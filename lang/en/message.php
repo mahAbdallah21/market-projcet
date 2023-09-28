@@ -37,6 +37,9 @@ return [
    'meta_title' =>'Meta Title',
    'popular' =>'popular',
    'Description'=>'Description',
+   "Description_en" => 'English Description',
+
+   "Description_ar" => 'Arabic Description ',
    'meta keywords'=>'meta keywords ',
    'Is Not Show'=>'Is Not Show ',
    'Is Not popular'=> 'Is Not popular',
@@ -54,6 +57,11 @@ return [
    'country'=>'country',
    'role'=>'role',
    'Action'=>'Action',
+  'price'=>'price',
+  'Add New product' => 'Add New product',
+  'Edit product' => 'Edit product',
+
+
 
 
 

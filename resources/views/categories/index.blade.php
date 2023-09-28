@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">{{App\models\Order::count()}}</h4>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{App\models\product::count()}}</h4>
                         <div class="text-gray-500">{{__('message.Available Products')}}</div>
                     </div>
                 </div>
@@ -155,9 +155,10 @@
 
 
 
-                            <td class="px-8 py-6 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                <a href="{{route('categories.show' ,$category->id)}}" class="text-indigo-600 hover:text-indigo-900">Show</a>
-                                <a href="{{route('categories.edit' ,$category->id)}}" class="text-green-400 hover:text-green-900">Edit</a>
+                            <td class="px-8 py-6  whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                                <div class=" flex items-center justify-between  p-5 m-5">
+                                <a href="{{route('categories.show' ,$category->id)}}" class="text-indigo-600 hover:text-indigo-900 p-3 ">Show</a>
+                                <a href="{{route('categories.edit' ,$category->id)}}" class="text-green-400 hover:text-green-900 p-3 ">Edit</a>
 
                                 <form method="POST" action="{{ route('categories.destroy' , $category->id )}}" >
                                   @method('DELETE')
@@ -165,11 +166,12 @@
 
 
                                     <button type="submit"
-                                    class="text-red-500  hover:text-red-900 focus:outline-none">
+                                    class="text-red-500  hover:text-red-900 focus:outline-none p-3 ">
 
                                       Delete
                                     </button>
                                 </form>
+                                </div>
                             </td>
                         </tr>
 

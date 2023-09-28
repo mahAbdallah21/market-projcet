@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\product;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\product_images;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\storeProductRequest;
+use App\Http\Requests\updateProductRequest;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
 
 class ProductController extends Controller
 {
@@ -13,7 +19,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products =product::query();
+        return view('products.index', ['products'=>$products->paginate(10)]);
     }
 
     /**
@@ -21,15 +28,46 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(storeProductRequest $request)
     {
-        //
+        try {
+            $validate= $request->validated();
+
+           $product= product::create([
+                'name'=>[
+                    'ar'=>$request->name_ar,
+                    'en'=>$request->name_en
+
+                ],
+                'description'=>[
+                    'ar'=>$request->description_ar,
+                    'en'=>$request->description_en
+                ],
+                'price'=>$request->price,
+
+                'category_id'=>$request->category_id,
+                'is_show' => $request->is_show ? '1' : '0',
+            ]);
+            product_images::create([
+                'image' => $request->file('image')->store('productImages') ,
+                'product_id' => $product->id
+
+            ]);
+
+            return redirect()->route('products.index')->with('success' ,('Data has been saved successfully!'));
+
+        } catch (Exception $e) {
+
+              return redirect()->route('products.index')->withErrors($e->getMessage());
+
+        }
+
     }
 
     /**
@@ -37,7 +75,9 @@ class ProductController extends Controller
      */
     public function show(product $product)
     {
-        //
+        $product = $product ;
+        return view('products.show', compact('product'));
+
     }
 
     /**
@@ -45,15 +85,56 @@ class ProductController extends Controller
      */
     public function edit(product $product)
     {
-        //
-    }
+       $product = $product ;
+       return view('products.edit', compact('product'));
+
+
+       }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, product $product)
+    public function update(updateProductRequest $request, product $product)
     {
-        //
+        try {
+            $validate= $request->validated();
+            $image = $request->image ;
+            if ($request->hasFile('image')) {
+                  Storage::delete('image');
+                  $image =$request->file('image')->store('productImages');
+            }
+            $product->update([
+                'name'=>[
+                    'ar'=>$request->name_ar,
+                    'en'=>$request->name_en
+
+                ],
+                'description'=>[
+                    'ar'=>$request->description_ar,
+                    'en'=>$request->description_en
+                ],
+                'price'=>$request->price,
+
+                'category_id'=>$request->category_id,
+                'is_show' => $request->is_show ? '1' : '0',
+            ]);
+
+                $product->product_images->update([
+                    'image' => $image ,
+                    'product_id' => $product->id
+
+
+                ]);
+
+
+            return redirect()->route('products.index')->with('success' ,('Data has been Updated successfully!'));
+
+        } catch (Exception $e) {
+
+              return redirect()->route('products.index')->withErrors($e->getMessage());
+
+        }
+
     }
 
     /**
@@ -61,6 +142,14 @@ class ProductController extends Controller
      */
     public function destroy(product $product)
     {
-        //
+        if($product->product_images){
+            Storage::delete($product->product_images);
+
+        }
+
+        product_images::where('product_id' , $product->id)->delete();
+        $product->delete();
+
+        return redirect()->route('products.index')->with( 'success',('Data Delete successfully!'));
     }
 }
