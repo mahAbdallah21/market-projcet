@@ -18,7 +18,7 @@
                         <label class="text-gray-700 @error('name_ar') is-invalid @enderror"
                             for="name_ar">{{__('message.Arabic Name')}}</label>
                         <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_ar"
-                            value="{{old('name_en' ,$product->name)}}" type="text">
+                            value="{{$product->getTranslation('name', 'ar')}}" type="text">
 
                         @error('name_ar')
                         <div
@@ -30,7 +30,7 @@
                         <label class="text-gray-700 @error('name_en') is-invalid @enderror"
                             for="name_en">{{__('message.English Name')}}</label>
                         <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_en"
-                            value="{{old('name_en' ,$product->name)}}" type="text">
+                            value="{{$product->getTranslation('name', 'en')}}" type="text">
                         @error('name_en')
                         <div
                             class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">
@@ -90,7 +90,7 @@
 
                             <textarea id="editor" name="description_en" rows="8"
                                 class="block px-0 w-full text-sm text-gray-800 bg-white border-0  focus:ring-0  "
-                                placeholder="{{old('description_en' , $product->description)}}"></textarea>
+                                placeholder="{{__('message.Description_ar')}}">{{$product->getTranslation('description', 'ar')}}</textarea>
                                 @error('description_en')
                                 <div
                                     class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">
@@ -108,14 +108,14 @@
                                 <div class="flex flex-wrap items-center divide-gray-200 sm:divide-x">
 
 
-                                    <label for="editor" class="sr-only">{{__('message.Description_ar')}}</label>
+                                    <label for="editor" class="">{{__('message.Description_ar')}}</label>
                                 </div>
                             </div>
                             <div class="py-2 px-4 bg-white rounded-b-lg">
 
                                 <textarea id="editor" name="description_ar" rows="8"
                                     class="block px-0 w-full text-sm text-gray-800 bg-white border-0  focus:ring-0  "
-                                    placeholder="{{old('description_en' , $product->description)}}"></textarea>
+                                    placeholder="{{__('message.Description_ar')}}">{{$product->getTranslation('description', 'en')}}</textarea>
                                     @error('description_ar')
                                     <div
                                         class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">

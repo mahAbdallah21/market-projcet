@@ -18,7 +18,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                         <div  class="mt-4">
                             <label class="text-gray-700 @error('name_ar') is-invalid @enderror" for="name_ar" >{{__('message.Arabic Name')}}</label>
-                            <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_ar" value="{{$category->name}}"
+                            <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_ar" value="{{old('name_ar', $category->getTranslation('name', 'ar'))}}"
                                 type="text">
                                 @error('name_ar')
                            <div class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">{{ $message }}</div>
@@ -26,7 +26,7 @@
                         </div>
                         <div  class="mt-4">
                             <label class="text-gray-700 @error('name_en') is-invalid @enderror" for="name_en" >{{__('message.English Name')}}</label>
-                            <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_en"  value="{{$category->name}}"
+                            <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_en"  value="{{old('name_en', $category->getTranslation('name', 'en'))}}"
                                 type="text">
                                 @error('name_en')
                                 <div class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">{{ $message }}</div>
@@ -35,14 +35,14 @@
 
                         <div  class="mt-4">
                             <label class="text-gray-700 @error('meta_title_ar') is-invalid @enderror" for="meta_title_ar">{{__('message.Arabic META TITLE')}}</label>
-                            <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="meta_title_ar" value="{{old('meta_title_ar', $category->meta_title)}}" type="text">
+                            <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="meta_title_ar" value="{{old('meta_title_ar', $category->getTranslation('meta_title', 'ar'))}}" type="text">
                             @error('meta_title_ar')
                             <div class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">{{ $message }}</div>
                           @enderror
                         </div>
                         <div  class="mt-4">
                             <label class="text-gray-700 @error('meta_title_en') is-invalid @enderror" for="META_TITLE">{{__('message.English META TITLE')}}</label>
-                            <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="meta_title_en" value="{{old('meta_title_en' ,$category->meta_title)}}" type="text">
+                            <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="meta_title_en" value="{{old('meta_title_en', $category->getTranslation('meta_title', 'en'))}}" type="text">
                             @error('meta_title_en')
                             <div class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">{{ $message }}</div>
                           @enderror
@@ -132,12 +132,12 @@
 
                                     </div>
 
-                                    <label for="editor" class="sr-only">Meta Description</label>
+                                    <label for="editor" class="">{{__('message.Description')}}</label>
                                     </div>
                                 </div>
                                 <div class="py-2 px-4 bg-white rounded-b-lg">
 
-                                    <textarea id="editor" name="meta_description" value="{{old('meta_description', $category->meta_description)}}" rows="8" class="block px-0 w-full text-sm text-gray-800 bg-white border-0  focus:ring-0  " placeholder="{{old('meta_description', $category->meta_description)}}" ></textarea>
+                                    <textarea id="editor" name="meta_description"  rows="8" class="block px-0 w-full text-sm text-gray-800 bg-white border-0  focus:ring-0  " placeholder="{{__('message.Description')}}" >{{old('meta_description', $category->meta_description)}}</textarea>
                                 </div>
                                 <div class="mt-4 w-full bg-gray-50 rounded-lg border border-gray-200 ">
                                     <div class="flex justify-between items-center py-2 px-3 border-b">
@@ -146,12 +146,12 @@
 
                                         </div>
 
-                                        <label for="editor" class="sr-only">mate keywords</label>
+                                        <label for="editor" class="">{{__('message.meta keywords')}}</label>
                                         </div>
                                     </div>
                                     <div class="py-2 px-4 bg-white rounded-b-lg">
 
-                                        <textarea id="editor" name="mate_keywords" value="{{old('mate_keywords', $category->mate_keywords)}}"  rows="8" class="block px-0 w-full text-sm text-gray-800 bg-white border-0  focus:ring-0  " placeholder="{{old('mate_keywords', $category->mate_keywords)}}" ></textarea>
+                                        <textarea id="editor" name="mate_keywords"   rows="8" class="block px-0 w-full text-sm text-gray-800 bg-white border-0  focus:ring-0  " placeholder="{{__('message.meta keywords')}}" >{{old('mate_keywords', $category->mate_keywords)}}</textarea>
                                     </div>
 
 
