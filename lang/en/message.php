@@ -60,6 +60,9 @@ return [
   'price'=>'price',
   'Add New product' => 'Add New product',
   'Edit product' => 'Edit product',
+  'NO Products'=> 'Products are not available now',
+  'settings' => 'settings',
+
 
 
 

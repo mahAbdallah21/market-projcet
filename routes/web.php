@@ -5,6 +5,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\settingsController;
+use App\Http\Controllers\user\wabColntroller;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use function PHPUnit\Framework\returnSelf;
@@ -39,14 +41,28 @@ Route::group(
             Route::resource('products',ProductController::class);
             Route::resource('orders', OrderController::class);
 
+            Route::prefix('settings')->group(function () {
+                Route::get('/side',[settingsController::class , 'index'])->name('side.index');
+
+            });
+
         });
 
 
     });
+
     Route::get('/', function () {
         return view('welcome');
 
     });
+    Route::group(
+        [
+            'prefix' => LaravelLocalization::setLocale(),
+            'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+        ], function(){ //...
+            Route::get('/ui' ,[ wabColntroller::class , 'index']);
+
+        });
 
 
 

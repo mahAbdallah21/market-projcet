@@ -60,6 +60,9 @@ return [
   'price'=>'السعر',
   'Add New product' => 'أضافة منتج جديد',
   'Edit product' => 'تعديل المنتج',
+  'NO Products'=> 'المنتجات ليست متوفرة الان',
+  'settings' => 'الضبط',
+
 
 
 

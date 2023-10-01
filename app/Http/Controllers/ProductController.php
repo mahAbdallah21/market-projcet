@@ -119,7 +119,7 @@ class ProductController extends Controller
                 'is_show' => $request->is_show ? '1' : '0',
             ]);
 
-                $product->product_images->update([
+                product_images::where('product_id' , $product->id)->update([
                     'image' => $image ,
                     'product_id' => $product->id
 

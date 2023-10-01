@@ -18,23 +18,34 @@
     </div>
     <div class="flex items-center">
     <div x-data="{ dropdownOpen1: false }"  class="relative">
-        <button @click="dropdownOpen1 = ! dropdownOpen1" class=" inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium  overflow-hidden rounded-full shadow focus:outline-none">
+        <button @click="dropdownOpen1 = ! dropdownOpen1" class=" inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium  overflow-hidden  focus:outline-none">
             @if ( Config::get('app.locale')  == 'ar')
-                {{ LaravelLocalization::getCurrentLocaleName() }}
-                <i class="fa-solid fa-language" style="color: #2066df;"></i>
+
+                <img src="{{ asset('storage/lang/ar.png') }}" alt="" width=30px height=auto style='border' />
 
             @else
-                {{ LaravelLocalization::getCurrentLocaleName() }}
-                <i class="fa-solid fa-language" style="color: #2066df;"></i>
+
+                <img src="{{ asset('storage/lang/en.png') }}" alt="" width=30px height=auto style='border' />
 
             @endif
         </button>
         <div x-cloak x-show="dropdownOpen1" @click="dropdownOpen1 = false" class="fixed inset-0 z-10 w-full h-full"></div>
         <div x-cloak x-show="dropdownOpen1" class="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl">
             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                <a class="flex items-center px-4 py-3 -mx-2 text-gray-600 hover:text-white hover:bg-indigo-600" rel="alternate"
+                <a class="flex justify-center items-center px-4 py-3 -mx-2 text-gray-600 hover:text-white hover:bg-indigo-600" rel="alternate"
                  hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                    {{ $properties['native'] }}
+                    {{ $properties['native']}}
+                    @if ($properties['native'] =='English')
+                    <img src="{{ asset('storage/lang/en.png') }}" alt="" width=20px height=auto style='border' />
+
+                   @else
+
+
+                    <img src="{{ asset('storage/lang/ar.png') }}" alt="" width=20px height=auto style='border' />
+                    @endif
+
+
+
                 </a>
             @endforeach
         </div>
