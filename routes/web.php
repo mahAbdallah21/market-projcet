@@ -43,6 +43,11 @@ Route::group(
 
             Route::prefix('settings')->group(function () {
                 Route::get('/side',[settingsController::class , 'index'])->name('side.index');
+                Route::get('/side/create',[settingsController::class , 'create'])->name('side.create');
+                Route::post('/side/store',[settingsController::class , 'store'])->name('side.store');
+                Route::get('/side/edit/{id}',[settingsController::class , 'edit'])->name('side.edit');
+                Route::patch('/side/update/{id}',[settingsController::class , 'update'])->name('side.update');
+                Route::delete('/side/destroy/{id}',[settingsController::class , 'destroy'])->name('side.destroy');
 
             });
 

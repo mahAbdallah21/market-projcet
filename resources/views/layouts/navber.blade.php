@@ -12,7 +12,7 @@
         <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
             <nav>
                 <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="#">Home</a></li>
+                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="#">{{__('ui_lang.home')}}</a></li>
                     <li>
                         <button id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b
                          border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:hover:text-black md:p-0 dark:text-white md:dark:hover:text-gray-800 dark:hover:bg-gray-700
@@ -25,7 +25,7 @@
                     </li>
 
                     <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="#">{{__('message.products')}}</a></li>
-                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="#">About</a></li>
+                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="#">{{__('ui_lang.about')}}</a></li>
                 </ul>
             </nav>
         </div>
@@ -100,7 +100,7 @@
                 <li>
 
                     <a href="#" class=" rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                        
+
 
 
 

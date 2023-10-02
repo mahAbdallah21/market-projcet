@@ -15,9 +15,9 @@
                 @method('POST')
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
                     <div class="mt-4">
-                        <label class="text-gray-700 @error('name_ar') is-invalid @enderror"
+                        <label class="text-gray-700 "
                             for="name_ar">{{__('message.Arabic Name')}}</label>
-                        <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_ar"
+                        <input class="@error('name_ar') is-invalid @enderror form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_ar"
                             value="{{old('name_ar')}}" type="text">
                         @error('name_ar')
                         <div
@@ -26,9 +26,9 @@
                         @enderror
                     </div>
                     <div class="mt-4">
-                        <label class="text-gray-700 @error('name_en') is-invalid @enderror"
+                        <label class="text-gray-700 "
                             for="name_en">{{__('message.English Name')}}</label>
-                        <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_en"
+                        <input class="@error('name_en') is-invalid @enderror form-input w-full mt-2 rounded-md focus:border-indigo-600" name="name_en"
                             value="{{old('name_en')}}" type="text">
                         @error('name_en')
                         <div
@@ -39,7 +39,7 @@
                     <div class="mt-4">
                         <label class="text-gray-700 "
                             for="price">{{__('message.price')}}</label>
-                        <input class="form-input w-full mt-2 rounded-md focus:border-indigo-600" @error('price') is-invalid @enderror name="price"
+                        <input class=" @error('price') is-invalid @enderror form-input w-full mt-2 rounded-md focus:border-indigo-600" name="price"
                             value="{{old('price')}}" type="number">
                         @error('price')
                         <div
@@ -139,8 +139,8 @@
                                 <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
                                     800x400px)</p>
                             </div>
-                            <input id="dropzone-file" name="image" @error('image') is-invalid @enderror" type="file"
-                                class="hidden" />
+                            <input id="dropzone-file" name="image"  type="file"
+                                class="@error('image') is-invalid @enderror hidden" />
                             @error('image')
                             <div
                                 class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">
