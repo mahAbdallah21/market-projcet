@@ -26,7 +26,7 @@
 
         </div>
 
-        <div class="grid grid-cols-1 gap-8 mt-8 lg:grid-cols-2">
+        <div class="grid gap-2 grid-cols-2 grid-rows-2  mt-8">
             @forelse ( $sideshow as $side )
             <div>
                 <img class="relative z-10 object-cover w-full rounded-md h-96" src="{{asset('storage/' .$side->image)}}" alt="">
@@ -88,10 +88,11 @@
                 </div>
 
             </div>
-            </div>
+
             @empty
 
             @endforelse
+        </div>
 
 
         </div>

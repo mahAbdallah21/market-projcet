@@ -13,8 +13,8 @@
 
                     <div class="container mx-auto">
                         <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                            <p class="text-gray-500 text-2xl my-4">{{$sideshow->description}}</p>
-                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black dark:text-gray-100 "  href="#">{{$sideshow->title}}</a>
+                            <p class="text-gray-200 text-xl my-4">{{$sideshow->description}}</p>
+                            <a class="text-2xl inline-block   leading-relaxed hover:text-gray-800  text-gray-100 "  href="#">{{$sideshow->title}}</a>
                         </div>
                     </div>
 
@@ -76,13 +76,13 @@
                     <div class="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
                       <img src="{{asset('storage/'.$category->image)}}" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="h-full w-full object-cover object-center">
                     </div>
-                    <h3 class="mt-6 text-sm text-gray-500">
+                    <h3 class="mt-6 text-sm text-gray-500 dark:text-gray-100 dark:hover:text-gray-400">
                       <a href="#">
-                        <span class="absolute inset-0"></span>
+                        <span class="absolute inset-0 dark:text-gray-100 dark:hover:text-gray-400"></span>
                         {{$category->name}}
                       </a>
                     </h3>
-                    <p class="text-base font-semibold text-gray-900">{{$category->meta_description}}/p>
+
                   </div>
                   @empty
 
@@ -156,34 +156,6 @@
 
                 @endforelse
                 </div>
-                <div class="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-                    <div class="px-4 py-2">
-                        <h1 class="text-xl font-bold text-gray-800 uppercase dark:text-white">NIKE AIR</h1>
-                        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus</p>
-                    </div>
 
-                    <img class="object-cover w-full h-48 mt-2" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=320&q=80" alt="NIKE AIR">
-
-                    <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-                        <h1 class="text-lg font-bold text-white">$129</h1>
-                        <button class="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">Add to cart</button>
-                    </div>
-                </div>
         </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </x-app-layout>

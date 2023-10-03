@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\settingsController;
 use App\Http\Controllers\user\wabColntroller;
+use Illuminate\Routing\RouteGroup;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use function PHPUnit\Framework\returnSelf;
@@ -65,7 +66,17 @@ Route::group(
             'prefix' => LaravelLocalization::setLocale(),
             'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
         ], function(){ //...
-            Route::get('/ui' ,[ wabColntroller::class , 'index']);
+            Route::prefix('ui')->name('ui.')->group(function(){
+            Route::get('/' ,[ wabColntroller::class , 'index'])->name('home');
+            Route::get('/categories/{id?}' ,[ wabColntroller::class , 'categories'])->name('categories');
+            Route::get('/products/{id?}' ,[ wabColntroller::class , 'products'])->name('products');
+            Route::get('/about' ,[ wabColntroller::class , 'about'])->name('about');
+
+
+
+
+
+            });
 
         });
 

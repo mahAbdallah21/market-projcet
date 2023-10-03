@@ -109,8 +109,10 @@
         </div>
 
         <div class="flex items-center">
-            <input  id="checked-checkbox" name="is_showing" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 "  {{$sideShow->is_showing === 1 ? 'checked' : ''}}>
-            <label for="checked-checkbox" class="ml-2 text-sm font-medium text-gray-900 ">Showing</label>
+            <label class="inline-flex  justify-items-center p-7php">
+                <input type="checkbox" name="is_showing" class="form-checkbox h-5 w-5  text-purple-700" {{$sideShow->is_showing == 1 ? 'checked' : '' }} >
+                <span  class="ml-2 text-gray-700">showing</span>
+            </label>
         </div>
 
       </div>

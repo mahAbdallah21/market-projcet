@@ -1,3 +1,5 @@
+<x-app-layout>
+
 <section class="bg-white py-8 dark:bg-gray-900 dark:text-gray-100">
 
     <div class="container py-8 px-6 mx-auto">
@@ -14,8 +16,9 @@
 
     </div>
 
-</section>
-<div class="bg-white">
+
+<div class=">
+
     <div class="pt-6">
       <nav aria-label="Breadcrumb">
         <ol role="list" class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -269,3 +272,5 @@
       </div>
     </div>
   </div>
+</section>
+</x-app-layout>

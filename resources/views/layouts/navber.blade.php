@@ -1,4 +1,4 @@
-<nav id="header" class="w-full bg-slate-900 z-30 top-0 py-1">
+<nav id="header" class="w-full bg-slate-200 dark:bg-slate-900 z-30 top-0 py-1">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
         <label for="menu-toggle" class="cursor-pointer md:hidden block">
@@ -12,30 +12,33 @@
         <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
             <nav>
                 <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="#">{{__('ui_lang.home')}}</a></li>
+                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100 active:text-gray-500 active:font-bold   hover:underline py-2 px-4"  href="{{route('ui.home')}}"  active="{{request()->routeIs('ui.home')}}">{{__('ui_lang.home')}}</a></li>
                     <li>
+
                         <button id="mega-menu-full-dropdown-button" data-collapse-toggle="mega-menu-full-dropdown" class="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b
-                         border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:hover:text-black md:p-0 dark:text-white md:dark:hover:text-gray-800 dark:hover:bg-gray-700
+                         border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 hover:hover:text-black md:p-0 dark:text-white md:dark:hover:text-gray-800 dark:hover:bg-gray-700
                           dark:hover:text-black md:dark:hover:bg-transparent dark:border-gray-700">
-                            {{__('message.Categories')}}
+                          <a href="{{route('ui.categories')}}" {{{route('ui.categories') ? 'archive' : ''}}}>
+                            {{__('message.Categories')}}</a>
                             <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                           </svg></button>
 
+
                     </li>
 
-                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="#">{{__('message.products')}}</a></li>
-                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="#">{{__('ui_lang.about')}}</a></li>
+                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="{{route('ui.products')}}" {{{route('ui.products') ? 'archive' : ''}}}>{{__('message.products')}}</a></li>
+                    <li><a class="inline-block no-underline hover:text-black dark:text-gray-100  hover:underline py-2 px-4" href="{{route('ui.about')}}" {{{route('ui.about') ? 'archive' : ''}}}>{{__('ui_lang.about')}}</a></li>
                 </ul>
             </nav>
         </div>
 
         <div class="order-1 md:order-2 dark:text-gray-100 ">
-            <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold dark:text-gray-100  text-gray-800 text-xl " href="#">
+            <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-sky-600   text-xl " href="{{route('ui.home')}}">
                 {{-- <svg class="fill-current text-gray-800 dark:text-gray-100  mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M5,22h14c1.103,0,2-0.897,2-2V9c0-0.553-0.447-1-1-1h-3V7c0-2.757-2.243-5-5-5S7,4.243,7,7v1H4C3.447,8,3,8.447,3,9v11 C3,21.103,3.897,22,5,22z M9,7c0-1.654,1.346-3,3-3s3,1.346,3,3v1H9V7z M5,10h2v2h2v-2h6v2h2v-2h2l0.002,10H5V10z" />
                 </svg> --}}
-                <i class="fa-sharp fa-solid fa-cart-shopping fa-bounce fa-sm dark:text-gray-100" ></i>
+                <i class="fa-sharp fa-solid fa-cart-shopping fa-bounce fa-sm " ></i>
                 MARKET
             </a>
         </div>
@@ -99,27 +102,14 @@
                 @foreach (App\Models\category::whereNull('category_id')->get() as $category)
                 <li>
 
-                    <a href="#" class=" rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <a href="{{route('ui.categories' , $category->id)}}" class=" rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
 
 
 
 
                         <div class="font-semibold">{{$category->name}}</div>
                     </a>
-                        @foreach (App\Models\category::where('category_id' , $category->category_id)->get() as $category )
 
-
-
-
-
-
-                        <ul class="text-sm text-gray-500 dark:text-gray-400">
-                        <li> <a href="#"  class="text-sm text-gray-500 dark:text-gray-400  rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                            {{$category->name}}
-                            </a>  </li>
-                        </ul>
-
-                     @endforeach
 
 
                 </li>

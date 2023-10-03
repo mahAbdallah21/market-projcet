@@ -14,7 +14,7 @@ class Category extends Model
 
 
 
-    protected $fillable = ['name', 'image','category_id' ,'is_showing' , 'is_popular','meta_title', 'meta_description'
+    protected $fillable = ['name', 'image','category_id' ,'is_showing' ,'is_popular','meta_title', 'meta_description'
     ,'mate_keywords'];
 
     public $translatable = ['name','meta_title'];

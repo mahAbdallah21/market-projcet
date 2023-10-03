@@ -41,7 +41,7 @@ class settingsController extends Controller
                     'en'=>$request->description_en
                 ],
                 'image' =>$request->file('image')->store('sideShow'),
-                'is_showing' =>$request->is_showing ? 1 : 0 ,
+                'is_showing' =>$request->is_showing ? '1' : '0' ,
             ]);
             return redirect()->route('side.index')->with('success' ,('Data has been saved successfully!'));
         } catch (Exception $e) {
@@ -93,7 +93,7 @@ public function update(Request $request , $id){
             'en'=>$request->description_en
         ],
         'image' =>$image ,
-        'is_showing' =>$request->is_showing ? 1 : 0 ,
+        'is_showing' =>$request->is_showing ? '1': '0' ,
 
 
 
