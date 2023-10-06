@@ -1,4 +1,7 @@
-<div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+
+
+
+  <div class="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
     <!--
       Background backdrop, show/hide based on slide-over state.
 
@@ -169,3 +172,4 @@ items-center justify-center space-x-2">
         <button class="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">Add to cart</button>
     </div>
 </div>
+

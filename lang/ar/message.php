@@ -62,6 +62,7 @@ return [
   'Edit product' => 'تعديل المنتج',
   'NO Products'=> 'المنتجات ليست متوفرة الان',
   'settings' => 'الضبط',
+  'quantity'=>'الكميه',
 
 
 

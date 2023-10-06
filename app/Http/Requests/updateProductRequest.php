@@ -27,6 +27,7 @@ class updateProductRequest extends FormRequest
             "name_ar"=>'required|string|max:130',
             "name_en"=>'required|string|max:120',
             "price" =>"required |numeric",
+            'quantity'=>'required|numeric',
             "image" => 'image',
             'description_ar' => 'required',
             'description_en' => 'required',

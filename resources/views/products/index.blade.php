@@ -88,6 +88,7 @@
 
 
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"> {{__('message.price')}}</th>
+                            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"> {{__('message.quantity')}}</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{__('message.image')}}</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{__('message.Category')}}</th>
                             <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{__('message.showing')}}</th>
@@ -112,6 +113,10 @@
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="text-sm leading-5 text-gray-900"> {{$product->price }}</div>
                                 <div class="text-sm leading-5 text-gray-500">EL</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                                <div class="text-sm leading-5 text-gray-900"> {{$product->quantity }}</div>
+                                <div class="text-sm leading-5 text-gray-500"></div>
                             </td>
 
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">

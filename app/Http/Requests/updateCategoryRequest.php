@@ -26,7 +26,9 @@ class updateCategoryRequest extends FormRequest
 
             'name_ar'=>'required',
             'name_en'=>'required',
-               
+            
+
+
 
                 'meta_title_ar'=>'required',
                'meta_title_en'=>'required',

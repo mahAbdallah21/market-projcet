@@ -50,6 +50,7 @@ class ProductController extends Controller
                     'en'=>$request->description_en
                 ],
                 'price'=>$request->price,
+                'quantity'=>$request->quantity,
 
                 'category_id'=>$request->category_id,
                 'is_show' => $request->is_show ? '1' : '0',
@@ -114,6 +115,7 @@ class ProductController extends Controller
                     'en'=>$request->description_en
                 ],
                 'price'=>$request->price,
+                'quantity'=>$request->quantity,
 
                 'category_id'=>$request->category_id,
                 'is_show' => $request->is_show ? '1' : '0',

@@ -16,6 +16,10 @@ return [
 
     'home' => 'Home',
    'about'=>'About',
+   'The product is not available' =>'The product is not available',
+   'The product is available' =>'The product is available',
+   
+
 
 
 

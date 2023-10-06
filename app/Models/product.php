@@ -14,7 +14,7 @@ class product extends Model
 
 
 
-   protected $fillable = ['id','name', 'price','category_id' ,'is_show' , 'description'];
+   protected $fillable = ['id','name', 'price','category_id' ,'is_show' , 'quantity','description'];
 
    public $translatable = ['name','description'];
 
@@ -24,6 +24,9 @@ class product extends Model
    }
    public function product_images(){
     return $this->hasMany(product_images::class);
+   }
+   public function product_cart(){
+    return $this->hasMany(cart::class);
    }
 
 }

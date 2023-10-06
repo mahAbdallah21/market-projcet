@@ -62,6 +62,8 @@ return [
   'Edit product' => 'Edit product',
   'NO Products'=> 'Products are not available now',
   'settings' => 'settings',
+  'quantity'=>'quantity',
+
 
 
 

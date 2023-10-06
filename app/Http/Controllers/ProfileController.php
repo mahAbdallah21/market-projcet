@@ -12,7 +12,7 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
- 
+
     /**
      * Display the user's profile form.
      */
@@ -57,6 +57,6 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect()->route('ui.home');
     }
 }

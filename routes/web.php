@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
@@ -71,6 +72,12 @@ Route::group(
             Route::get('/categories/{id?}' ,[ wabColntroller::class , 'categories'])->name('categories');
             Route::get('/products/{id?}' ,[ wabColntroller::class , 'products'])->name('products');
             Route::get('/about' ,[ wabColntroller::class , 'about'])->name('about');
+            Route::get('/product/show{id?}' ,[ wabColntroller::class , 'product_show'])->name('product_show');
+            Route::post('/product/add_to_cart' ,[ CartController::class , 'add_to_cart'])->name('add_to_cart');
+            Route::delete('/product/cart_destroy{id}' ,[ CartController::class , 'cart_destroy'])->name('cart_destroy');
+
+
+
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\product;
+use App\Models\product_images;
 use App\Models\sideShow;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,7 @@ class wabColntroller extends Controller
     }
     public function products(Request $request ,$id = null){
         $products = product::where('is_show' , '1')->get();
-        $catagory=null;
+        $category=null;
 
         if ($request->has('search')) {
             $products = product::where('name','like','%'.$request->search.'%')->orderBy('name')->get();
@@ -49,11 +50,12 @@ class wabColntroller extends Controller
         if (isset($id)) {
             $products = product::where('is_show' , '1')->where('category_id' , $id)->get();
 
-            $catagory = Category::findOrFail($id);
+            $category = Category::findOrFail($id);
+
         }
 
 
-        return view('UI.products_ui' ,['products'=>$products ,'category'=>$catagory  ]);
+        return view('UI.products_ui' ,['products'=>$products ,'category'=>$category  ]);
 
 
     }
@@ -63,5 +65,13 @@ class wabColntroller extends Controller
         return view('UI.about');
 
 
+    }
+    public function product_show($id = null)
+    {
+        $product =product::findOrFail($id);
+        $product_image = $product->product_images ;
+
+        $category = $product->category ;
+        return view('UI.product_show' , ['product' =>$product ,'category'=>$category ,'product_image'=>$product_image]);
     }
 }

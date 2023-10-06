@@ -16,6 +16,8 @@ return [
 
     'home' => 'الصفحة الرئسية',
    'about'=>'حول الصفحة ',
+   'The product is not available' =>'المنتح  غيرمتوفر',
+   'The product is available' =>'المنتح  متوفر',
 
 
 

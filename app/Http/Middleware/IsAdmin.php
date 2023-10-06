@@ -20,7 +20,7 @@ class IsAdmin
            if (Auth::user()->role === 'admin') {
             return $next($request);
            }else {
-            return redirect()->back()->with('warning','You Not Admin');
+            return redirect()->back()->with('success','Welcome to Market');
            }
         }else{
             return redirect()->back()->with('warning','You should Log In');

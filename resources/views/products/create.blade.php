@@ -47,6 +47,17 @@
                             {{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="mt-4">
+                        <label class="text-gray-700 "
+                            for="quantity">{{__('message.quantity')}}</label>
+                        <input class=" @error('quantity') is-invalid @enderror form-input w-full mt-2 rounded-md focus:border-indigo-600" name="quantity"
+                            value="{{old('quantity')}}" type="number">
+                        @error('quantity')
+                        <div
+                            class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">
+                            {{ $message }}</div>
+                        @enderror
+                    </div>
 
 
 
