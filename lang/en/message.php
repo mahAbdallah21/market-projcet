@@ -63,6 +63,7 @@ return [
   'NO Products'=> 'Products are not available now',
   'settings' => 'settings',
   'quantity'=>'quantity',
+  'unit_type'=>'Unit Type ',
 
 
 

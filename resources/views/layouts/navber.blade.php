@@ -123,8 +123,12 @@
 
 
             <div x-data="{ dropdownOpenCart: false }" class="relative">
+                <div class="t-0 absolute left-8">
+                    <p class="flex h-1 w-1 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white">{{App\models\cart::where('user_id' ,Auth::id())->count()}}</p>
+                  </div>
                 <button @click="dropdownOpenCart = ! dropdownOpenCart"
                     class=" inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium  overflow-hidden  focus:outline-none">
+
                     <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24">
                         <path
@@ -138,7 +142,7 @@
             </div>
             @else
 <a href="{{ route('login') }}"
-    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+    class="font-semibold text-gray-600 ml-4 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
     in</a>
 
 @if (Route::has('register'))

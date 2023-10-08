@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('price',10,2);
             $table->text('description');
             $table->integer('quantity');
+            $table->enum('unit_type', ['piece','Liter','kg']);
             $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });

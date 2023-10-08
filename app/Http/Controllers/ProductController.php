@@ -51,6 +51,8 @@ class ProductController extends Controller
                 ],
                 'price'=>$request->price,
                 'quantity'=>$request->quantity,
+                'unit_type'=>$request->unit_type,
+
 
                 'category_id'=>$request->category_id,
                 'is_show' => $request->is_show ? '1' : '0',
@@ -116,6 +118,7 @@ class ProductController extends Controller
                 ],
                 'price'=>$request->price,
                 'quantity'=>$request->quantity,
+                'unit_type'=>$request->unit_type,
 
                 'category_id'=>$request->category_id,
                 'is_show' => $request->is_show ? '1' : '0',

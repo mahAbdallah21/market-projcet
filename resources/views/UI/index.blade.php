@@ -130,7 +130,7 @@
                 @forelse ($products as $key=> $product )
                 <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
 
-                    <a href="#">
+                    <a href="{{route('ui.product_show' ,$product->id)}}">
                         @if ($product->product_images)
 
 
@@ -162,6 +162,6 @@
                 </div>
 
         </section>
-    
+
 
 </x-app-layout>

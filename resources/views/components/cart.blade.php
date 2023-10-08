@@ -17,6 +17,7 @@
               <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                 <div class="flex items-start justify-between">
                   <h2 class="text-lg font-medium text-gray-900 dark:text-gray-200" id="slide-over-title">Shopping cart</h2>
+
                   <div   class="ml-3 flex h-7 items-center">
                     <button type="button" @click="dropdownOpenCart = false"  class="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
                       <span class="absolute -inset-0.5"></span>
@@ -26,6 +27,11 @@
                       </svg>
                     </button>
                   </div>
+
+                </div>
+                <div>
+                <img src="{{ asset('storage/'. Auth()->User()->profile_photo) }}" alt="" width=18px height=auto style='border' />
+                <p class="text-l font-medium text-gray-900 dark:text-gray-300" id="slide-over-title">{{Auth::User()->name}}</p>
                 </div>
 
                 <div class="mt-8">
@@ -46,6 +52,12 @@
                           <img src="{{asset('storage/'.$image)}}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="h-full w-full object-cover object-center">
                         </div>
                         @endif
+                        @php
+                        $qty = $cart->qty;
+                     $price = $cart->product->price * $qty;
+
+                     $total += $price;
+                     @endphp
 
                         <div class="ml-4 flex flex-1 flex-col">
                           <div>
@@ -53,18 +65,13 @@
                               <h3>
                                 <a href="#">{{$cart->product->name}} </a>
                               </h3>
-                              <p class="ml-4">{{$cart->product->price }}EL</p>
+                              <p class="ml-4">{{$price }}EL</p>
                             </div>
-                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">{{Auth::User()->name}}</p>
+                            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Unit price : {{$cart->product->price}}El </p>
                           </div>
                           <div class="flex flex-1 items-end justify-between text-sm">
-                            <p class="text-gray-500">{{$cart->qty}}</p>
-                            @php
-                               $qty = $cart->qty;
-                            $price = $cart->product->price * $qty;
+                            <p class="text-gray-500">Quantity :{{$cart->qty}}-{{$cart->product->unit_type}}</p>
 
-                            $total += $price;
-                            @endphp
 
                             <div class="flex">
                                 <form method="POST" action="{{ route('ui.cart_destroy' , $cart->id )}}" >
@@ -108,12 +115,12 @@
                 </div>
                 <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                 <div class="mt-6">
-                  <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                  <a href="{{route('ui.checkOut')}}" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
                 </div>
                 <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
                   <p>
                     or
-                    <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">
+                    <button type="button" @click="dropdownOpenCart = false"  class="font-medium text-indigo-600 hover:text-indigo-500">
                       Continue Shopping
                       <span aria-hidden="true"> &rarr;</span>
                     </button>

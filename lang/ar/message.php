@@ -63,6 +63,7 @@ return [
   'NO Products'=> 'المنتجات ليست متوفرة الان',
   'settings' => 'الضبط',
   'quantity'=>'الكميه',
+  'unit_type'=>'نوع الوحدة',
 
 
 

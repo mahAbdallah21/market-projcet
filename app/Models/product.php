@@ -14,7 +14,7 @@ class product extends Model
 
 
 
-   protected $fillable = ['id','name', 'price','category_id' ,'is_show' , 'quantity','description'];
+   protected $fillable = ['id','name', 'price','category_id' ,'is_show' , 'quantity','unit_type','description'];
 
    public $translatable = ['name','description'];
 

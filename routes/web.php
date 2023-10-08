@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -58,15 +59,14 @@ Route::group(
 
     });
 
-    Route::get('/', function () {
-        return view('welcome');
-
-    });
     Route::group(
         [
             'prefix' => LaravelLocalization::setLocale(),
             'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
         ], function(){ //...
+
+    Route::get('/', [ wabColntroller::class , 'index'])->name('home');
+
             Route::prefix('ui')->name('ui.')->group(function(){
             Route::get('/' ,[ wabColntroller::class , 'index'])->name('home');
             Route::get('/categories/{id?}' ,[ wabColntroller::class , 'categories'])->name('categories');
@@ -74,7 +74,9 @@ Route::group(
             Route::get('/about' ,[ wabColntroller::class , 'about'])->name('about');
             Route::get('/product/show{id?}' ,[ wabColntroller::class , 'product_show'])->name('product_show');
             Route::post('/product/add_to_cart' ,[ CartController::class , 'add_to_cart'])->name('add_to_cart');
+
             Route::delete('/product/cart_destroy{id}' ,[ CartController::class , 'cart_destroy'])->name('cart_destroy');
+            Route::get('/checkOut' ,[CheckOutController::class , 'index'])->name('checkOut');
 
 
 

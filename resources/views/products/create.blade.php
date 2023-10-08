@@ -47,6 +47,24 @@
                             {{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="mt4">
+                        <label class="text-gray-700 "
+                        for="price">{{__('message.unit_type')}}</label>
+                        <select name="unit_type" @error('unit_type') is-invalid @enderror
+                                class="text-l  font-bold rounded border-2 border-purple-700
+                                 text-gray-600 w-full pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+                                 <option value="piece">piece</option>
+                                 <option value="Liter">Liter</option>
+                                 <option value="kg">kg</option>
+
+                        </select>
+                        @error('unit_type')
+                        <div
+                            class="font-regular relative mb-4 block w-full rounded-lg bg-red-600 p-4 text-base leading-5 text-white opacity-100">
+                            {{ $message }}</div>
+                        @enderror
+
+                    </div>
                     <div class="mt-4">
                         <label class="text-gray-700 "
                             for="quantity">{{__('message.quantity')}}</label>
